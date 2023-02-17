@@ -1,6 +1,29 @@
 @import "normalize.css";
 @import "fontawesome.min.css";
 
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/roboto-v27-latin-regular.eot");
+    src: local("Roboto Regular"),
+    local("Roboto-Regular"),
+    url("../fonts/roboto-v27-latin-regular.woff2") format("woff2"),
+    url("../fonts/roboto-v27-latin-regular.woff") format("woff");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FoundersGroteskX-CndWeb-Bld';
+    font-style: normal;
+    font-weight: 700;
+    src: url("../fonts/roboto-v27-latin-500.eot");
+    src: local("Roboto"),
+    url("../fonts/roboto-v27-latin-500.woff2") format("woff2"),
+    url("../fonts/roboto-v27-latin-500.woff") format("woff");
+    font-display: swap;
+}
+
 .document {
     /* ie11 goodbye */
     scroll-behavior: smooth;
@@ -462,6 +485,7 @@
     }
 
     .book-item__button-follow {
+        position: absolute;
         right: -50px;
         -webkit-transition: right 0.2s ease-in-out;
         transition: right 0.2s ease-in-out;
