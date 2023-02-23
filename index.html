@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ES FE book shop</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="script" href="js/main.js">
-
-    <title>Title</title>
 </head>
 
 <body class="page">
@@ -18,19 +15,19 @@
     <section class="books-content">
         <div class="page__inner">
             <div class="filtration-tools">
-                <button class="filtration-tools__button-all" value="all">All</button>
-                <button class="filtration-tools__button-fav" value="favourites">Favourites</button>
-                <button class="filtration-tools__button-comparison" value="comparison">Comparison</button>
+                <button class="filtration-tools__button filtration-tools__button-selected" data-filter="all">All</button>
+                <button class="filtration-tools__button" data-filter="favourites">Favourites</button>
+                <button class="filtration-tools__button" data-filter="comparison">Comparison</button>
                 <div class="filtration-tools__checkbox_container">
                     <label class="checkbox-container__label" for="show-hidden">Show hidden</label>
                     <label id="show-hidden" class="checkbox-container__switch">
-                        <input type="checkbox">
+                        <input class="filtration-tools__checkbox" type="checkbox">
                         <span class="checkbox-container__slider round"></span>
                     </label>
                 </div>
             </div>
             <ul class="book-list book-content__list">
-                <li id="123" class="book-item">
+                <li id="1" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
@@ -59,7 +56,7 @@
                                     <i class="fas fa-star star__inner star__fill_20"></i>
                                 </i>
                             </div>
-                            <p class="book-item__genre">Fantasy</p>
+                            <p class="book-item__genre">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                             <p class="book-item__price">
                                 <span class="book-price book-price-new">$15</span>
                                 <span class="book-price book-price-old">$100</span>
@@ -69,27 +66,27 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
-                                class="fas fa-eye button-widget__icon"></i></button>
-                        <button class="button-widget button-widget book-item__button-favorite" onclick="addRemoveFromFavourites()">
+                        <button class="button-widget button-widget book-item__button-hide"><i
+                                class="far fa-eye button-widget__icon"></i></button>
+                        <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
                         </button>
                         <button class="button-widget book-item__button-compare"><i
                                 class="fas fa-balance-scale button-widget__icon"></i></button>
                     </div>
                 </li>
-                <li class="book-item">
+                <li id="2" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
                             <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
+                                <source type="image/webp" srcset="./img/books/webp/book2.webp">
+                                <img class="book-item__image" src="./img/books/jpg/book2.jpg" alt="Book no.1"
                                      loading="lazy">
                             </picture>
                         </div>
                         <div class="book-item__content">
-                            <p class="book-item__title">LOTR pt. 1</p>
+                            <p class="book-item__title">LOTR pt. 2</p>
                             <div class="stars-block stars-theme book-item__rating">
                                 <i class="far fa-star star__outer">
                                     <i class="fas fa-star star__inner" style="width: 100%"></i>
@@ -117,7 +114,7 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
+                        <button class="button-widget button-widget book-item__button-hide"><i
                                 class="fas fa-eye button-widget__icon"></i></button>
                         <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
@@ -126,18 +123,18 @@
                                 class="fas fa-balance-scale button-widget__icon"></i></button>
                     </div>
                 </li>
-                <li class="book-item">
+                <li id="3" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
                             <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
+                                <source type="image/webp" srcset="./img/books/webp/book3.webp">
+                                <img class="book-item__image" src="./img/books/jpg/book3.jpg" alt="Book no.1"
                                      loading="lazy">
                             </picture>
                         </div>
                         <div class="book-item__content">
-                            <p class="book-item__title">LOTR pt. 1</p>
+                            <p class="book-item__title">LOTR pt. 3</p>
                             <div class="stars-block stars-theme book-item__rating">
                                 <i class="far fa-star star__outer">
                                     <i class="fas fa-star star__inner" style="width: 100%"></i>
@@ -165,7 +162,7 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
+                        <button class="button-widget button-widget book-item__button-hide"><i
                                 class="fas fa-eye button-widget__icon"></i></button>
                         <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
@@ -174,13 +171,13 @@
                                 class="fas fa-balance-scale button-widget__icon"></i></button>
                     </div>
                 </li>
-                <li class="book-item">
+                <li id="4" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
                             <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
+                                <source type="image/webp" srcset="./img/books/webp/book4.webp">
+                                <img class="book-item__image" src="./img/books/jpg/book4.jpg" alt="Book no.1"
                                      loading="lazy">
                             </picture>
                         </div>
@@ -213,7 +210,7 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
+                        <button class="button-widget button-widget book-item__button-hide"><i
                                 class="fas fa-eye button-widget__icon"></i></button>
                         <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
@@ -222,13 +219,13 @@
                                 class="fas fa-balance-scale button-widget__icon"></i></button>
                     </div>
                 </li>
-                <li class="book-item">
+                <li id="5" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
                             <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
+                                <source type="image/webp" srcset="./img/books/webp/book5.webp">
+                                <img class="book-item__image" src="./img/books/jpg/book5.jpg" alt="Book no.1"
                                      loading="lazy">
                             </picture>
                         </div>
@@ -261,7 +258,7 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
+                        <button class="button-widget button-widget book-item__button-hide"><i
                                 class="fas fa-eye button-widget__icon"></i></button>
                         <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
@@ -270,13 +267,13 @@
                                 class="fas fa-balance-scale button-widget__icon"></i></button>
                     </div>
                 </li>
-                <li class="book-item">
+                <li id="6" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
                             <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
+                                <source type="image/webp" srcset="./img/books/webp/book6.webp">
+                                <img class="book-item__image" src="./img/books/jpg/book6.jpg" alt="Book no.1"
                                      loading="lazy">
                             </picture>
                         </div>
@@ -309,7 +306,7 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
+                        <button class="button-widget button-widget book-item__button-hide"><i
                                 class="fas fa-eye button-widget__icon"></i></button>
                         <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
@@ -318,13 +315,13 @@
                                 class="fas fa-balance-scale button-widget__icon"></i></button>
                     </div>
                 </li>
-                <li class="book-item">
+                <li id="7" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
                             <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
+                                <source type="image/webp" srcset="./img/books/webp/book7.webp">
+                                <img class="book-item__image" src="./img/books/jpg/book7.jpg" alt="Book no.1"
                                      loading="lazy">
                             </picture>
                         </div>
@@ -357,7 +354,7 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
+                        <button class="button-widget button-widget book-item__button-hide"><i
                                 class="fas fa-eye button-widget__icon"></i></button>
                         <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
@@ -366,13 +363,13 @@
                                 class="fas fa-balance-scale button-widget__icon"></i></button>
                     </div>
                 </li>
-                <li class="book-item">
+                <li id="8" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
                             <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
+                                <source type="image/webp" srcset="./img/books/webp/book8.webp">
+                                <img class="book-item__image" src="./img/books/jpg/book8.jpg" alt="Book no.1"
                                      loading="lazy">
                             </picture>
                         </div>
@@ -405,7 +402,7 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
+                        <button class="button-widget button-widget book-item__button-hide"><i
                                 class="fas fa-eye button-widget__icon"></i></button>
                         <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
@@ -414,13 +411,13 @@
                                 class="fas fa-balance-scale button-widget__icon"></i></button>
                     </div>
                 </li>
-                <li class="book-item">
+                <li id="9" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
                             <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
+                                <source type="image/webp" srcset="./img/books/webp/book9.webp">
+                                <img class="book-item__image" src="./img/books/jpg/book9.jpg" alt="Book no.1"
                                      loading="lazy">
                             </picture>
                         </div>
@@ -453,7 +450,7 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
+                        <button class="button-widget button-widget book-item__button-hide"><i
                                 class="fas fa-eye button-widget__icon"></i></button>
                         <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
@@ -462,13 +459,13 @@
                                 class="fas fa-balance-scale button-widget__icon"></i></button>
                     </div>
                 </li>
-                <li class="book-item">
+                <li id="10" class="book-item">
                     <div class="book-item__inner">
                         <p class="book-item__status-bar">Top</p>
                         <div class="book-item__book-image-container">
                             <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
+                                <source type="image/webp" srcset="./img/books/webp/book10.webp">
+                                <img class="book-item__image" src="./img/books/jpg/book10.jpg" alt="Book no.1"
                                      loading="lazy">
                             </picture>
                         </div>
@@ -501,55 +498,7 @@
                         <button class="button book-item__button button_add">
                             <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
                         </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
-                                class="fas fa-eye button-widget__icon"></i></button>
-                        <button class="button-widget button-widget book-item__button-favorite">
-                            <i class="fas fa-heart button-widget__icon"></i>
-                        </button>
-                        <button class="button-widget book-item__button-compare"><i
-                                class="fas fa-balance-scale button-widget__icon"></i></button>
-                    </div>
-                </li>
-                <li class="book-item">
-                    <div class="book-item__inner">
-                        <p class="book-item__status-bar">Top</p>
-                        <div class="book-item__book-image-container">
-                            <picture class="picture">
-                                <source type="image/webp" srcset="./img/books/webp/book1.webp">
-                                <img class="book-item__image" src="./img/books/jpg/book1.jpg" alt="Book no.1"
-                                     loading="lazy">
-                            </picture>
-                        </div>
-                        <div class="book-item__content">
-                            <p class="book-item__title">LOTR pt. 1</p>
-                            <div class="stars-block stars-theme book-item__rating">
-                                <i class="far fa-star star__outer">
-                                    <i class="fas fa-star star__inner" style="width: 100%"></i>
-                                </i>
-                                <i class="far fa-star star__outer">
-                                    <i class="fas fa-star star__inner star__fill_100"></i>
-                                </i>
-                                <i class="far fa-star star__outer">
-                                    <i class="fas fa-star star__inner star__fill_100"></i>
-                                </i>
-                                <i class="far fa-star star__outer">
-                                    <i class="fas fa-star star__inner star__fill_100"></i>
-                                </i>
-                                <i class="far fa-star star__outer">
-                                    <i class="fas fa-star star__inner star__fill_20"></i>
-                                </i>
-                            </div>
-                            <p class="book-item__genre">Fantasy</p>
-                            <p class="book-item__price">
-                                <span class="book-price book-price-new">$15</span>
-                                <span class="book-price book-price-old">$100</span>
-                            </p>
-                        </div>
-                        <a class="book-item__link" href="#"></a>
-                        <button class="button book-item__button button_add">
-                            <i class="button_cart_icon fa fa-shopping-bag"></i> Add to cart
-                        </button>
-                        <button class="button-widget button-widget book-item__button-follow"><i
+                        <button class="button-widget button-widget book-item__button-hide"><i
                                 class="fas fa-eye button-widget__icon"></i></button>
                         <button class="button-widget button-widget book-item__button-favorite">
                             <i class="fas fa-heart button-widget__icon"></i>
@@ -566,5 +515,6 @@
 <footer class="footer">
 
 </footer>
+<script src="/js/main.js"></script>
 </body>
 </html>
