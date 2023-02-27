@@ -19,4 +19,8 @@ class CollectionWrapper {
     saveInLocalStorage(collectionName){
         localStorage.setItem(collectionName, this.#collection.toString());
     }
+
+    getCollection() {
+        return this.#collection;
+    }
 }

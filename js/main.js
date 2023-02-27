@@ -4,7 +4,7 @@ bookItems.forEach(item => {
 
     const hideButton = item.querySelector('.book-item__button-hide');
     hideButton.addEventListener('click', (e) => {
-        toggleButton(e, item, 'hiddenItems');
+        selectWidgetAndUpdateStorage(e, item, 'hiddenItems');
     });
     hideButton.addEventListener('click', function () {
         if (item.classList.contains('book-item-halfhidden')) {
@@ -12,22 +12,25 @@ bookItems.forEach(item => {
             item.classList.remove('book-item__hidden_by_button');
         } else {
             item.classList.add('book-item-halfhidden');
-            item.classList.add('book-item__hidden_by_button');
+            const checkBox = document.querySelector('.filtration-tools__checkbox');
+            if (checkBox.checked === false) {
+                item.classList.add('book-item__hidden_by_button');
+            }
         }
     })
 
     const favouriteButton = item.querySelector('.book-item__button-favorite');
     favouriteButton.addEventListener('click', (e) => {
-        toggleButton(e, item, 'favoritesItems');
+        selectWidgetAndUpdateStorage(e, item, 'favoritesItems');
     });
 
     const compareButton = item.querySelector('.book-item__button-compare');
     compareButton.addEventListener('click', (e) => {
-        toggleButton(e, item, 'comparisonItems');
+        selectWidgetAndUpdateStorage(e, item, 'comparisonItems');
     });
 });
 
-function toggleButton(e, item, collectionName) {
+function selectWidgetAndUpdateStorage(e, item, collectionName) {
     let collection = new CollectionWrapper(collectionName);
     const button = e.target;
     const id = item.getAttribute('id');
