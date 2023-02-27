@@ -1,10 +1,11 @@
+const bookItems = document.querySelectorAll('.book-item');
+
 function parseValuesIntoItems() {
     const favoritesItems = new CollectionWrapper('favoritesItems').getCollection();
     const hiddenItems = new CollectionWrapper('hiddenItems').getCollection();
     const comparisonItems = new CollectionWrapper('comparisonItems').getCollection();
 
-    const bookItemsOnLoad = document.querySelectorAll('.book-item');
-    bookItemsOnLoad.forEach(item => {
+    bookItems.forEach(item => {
         if (favoritesItems.includes(item.id)) {
             parseValue(item.querySelector('.book-item__button-favorite'));
         }
