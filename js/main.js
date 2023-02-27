@@ -1,15 +1,10 @@
-//widgets
-var favoritesItems = localStorage.getItem('favoritesItems') ? localStorage.getItem('favoritesItems').split(',') : [];
-var comparisonItems = localStorage.getItem('comparisonItems') ? localStorage.getItem('comparisonItems').split(',') : [];
-var hiddenItems = localStorage.getItem('hiddenItems') ? localStorage.getItem('hiddenItems').split(',') : [];
-
 const bookItems = document.querySelectorAll('.book-item');
 
 bookItems.forEach(item => {
 
-    var hideButton = item.querySelector('.book-item__button-hide');
+    const hideButton = item.querySelector('.book-item__button-hide');
     hideButton.addEventListener('click', (e) => {
-        toggleButton(e, item, hiddenItems, 'hiddenItems');
+        toggleButton(e, item, 'hiddenItems');
     });
     hideButton.addEventListener('click', function () {
         if (item.classList.contains('book-item-halfhidden')) {
@@ -21,31 +16,29 @@ bookItems.forEach(item => {
         }
     })
 
-    var favouriteButton = item.querySelector('.book-item__button-favorite');
+    const favouriteButton = item.querySelector('.book-item__button-favorite');
     favouriteButton.addEventListener('click', (e) => {
-        toggleButton(e, item, favoritesItems, 'favoritesItems');
+        toggleButton(e, item, 'favoritesItems');
     });
 
-    var compareButton = item.querySelector('.book-item__button-compare');
+    const compareButton = item.querySelector('.book-item__button-compare');
     compareButton.addEventListener('click', (e) => {
-        toggleButton(e, item, comparisonItems, 'comparisonItems');
+        toggleButton(e, item, 'comparisonItems');
     });
-})
+});
 
-function toggleButton(e, item, collection, collectionName) {
-    var button = e.target;
+function toggleButton(e, item, collectionName) {
+    let collection = new CollectionWrapper(collectionName);
+    const button = e.target;
+    const id = item.getAttribute('id');
     if (button.classList.contains('button-widget_active')) {
-        var indexOfCurrentListItem = collection.indexOf(item.getAttribute('id'));
-        collection.splice(indexOfCurrentListItem, 1);
+        collection.removeFromCollection(id);
         button.classList.remove('button-widget_active');
     } else {
-        var id = item.getAttribute('id');
-        if (!collection.includes(id)) {
-            collection.push(id);
-        }
+        collection.addToCollectionIfNotExists(id);
         button.classList.add('button-widget_active');
     }
-    localStorage.setItem(collectionName, collection.toString());
+    collection.saveInLocalStorage(collectionName);
 }
 
 const filtrationTools = document.querySelector('.filtration-tools');
@@ -63,11 +56,11 @@ filtrationTools.addEventListener('click', function (e) {
         })
     }
 
-    var checkBox = document.querySelector('.filtration-tools__checkbox');
+    const checkBox = document.querySelector('.filtration-tools__checkbox');
     const filterType = _target.dataset.filter;
     bookItems.forEach(function (item) {
-        var isFavouriteActive = item.querySelector('.book-item__button-favorite').classList.contains('button-widget_active');
-        var isComparisonActive = item.querySelector('.book-item__button-compare').classList.contains('button-widget_active');
+        const isFavouriteActive = item.querySelector('.book-item__button-favorite').classList.contains('button-widget_active');
+        const isComparisonActive = item.querySelector('.book-item__button-compare').classList.contains('button-widget_active');
         switch (filterType) {
             case 'favourites':
                 if (isFavouriteActive) {
@@ -91,7 +84,7 @@ filtrationTools.addEventListener('click', function (e) {
 
     if (_target.classList.contains('filtration-tools__checkbox')) {
         bookItems.forEach(function (item) {
-            var isItemHidden = item.querySelector('.book-item__button-hide').classList.contains('button-widget_active');
+            const isItemHidden = item.querySelector('.book-item__button-hide').classList.contains('button-widget_active');
             if (isItemHidden) {
                 if (checkBox.checked === true) {
                     item.classList.remove('book-item__hidden_by_button');
