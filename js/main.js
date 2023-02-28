@@ -1,6 +1,6 @@
 function selectWidgetAndUpdateStorage(e, item, collectionName) {
     let collection = new CollectionWrapper(collectionName);
-    const button = e.target;
+    const button = e.target.closest('.button-widget');
     const id = item.getAttribute('id');
     if (button.classList.contains('button-widget_active')) {
         collection.removeFromCollection(id);
